@@ -1,4 +1,3 @@
-
 import os
 import torch
 import torch.nn as nn
@@ -29,8 +28,8 @@ def get_args():
     parser.add_argument("--test_set", type=str, default="valohai/inputs/test-set/test.csv")
     parser.add_argument("--test_interval", type=int, default=1, help="Number of epoches between testing phases")
     parser.add_argument("--word2vec_path", type=str, default="valohai/inputs/word2Vec/glove.6B.50d.txt")
-    parser.add_argument("--log_path", type=str, default="valohai/ouputs/han_voc")
-    parser.add_argument("--saved_path", type=str, default="valohai/outputs")
+    parser.add_argument("--log_path", type=str, default="valohai/outputs")
+    parser.add_argument("--saved_path", type=str, default="valohai/ouputs")
     args = parser.parse_args()
     return args
 
@@ -40,7 +39,7 @@ def train(opt):
         torch.cuda.manual_seed(123)
     else:
         torch.manual_seed(123)
-    #output_file = open(opt.saved_path + os.sep + "logs.txt", "w")
+    output_file = open(opt.saved_path + os.sep + "logs.txt", "w")
     output_file.write("Model's parameters: {}".format(vars(opt)))
     training_params = {"batch_size": opt.batch_size,
                        "shuffle": True,
