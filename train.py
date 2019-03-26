@@ -29,8 +29,8 @@ def get_args():
     parser.add_argument("--test_set", type=str, default="valohai/inputs/test-set/test.csv")
     parser.add_argument("--test_interval", type=int, default=1, help="Number of epoches between testing phases")
     parser.add_argument("--word2vec_path", type=str, default="valohai/inputs/word2Vec/glove.6B.50d.txt")
-    parser.add_argument("--log_path", type=str, default="valohai/ouputs/tensorboard/han_voc")
-    parser.add_argument("--saved_path", type=str, default="valohai/outputs/trained_models")
+    parser.add_argument("--log_path", type=str, default="valohai/ouputs/han_voc")
+    parser.add_argument("--saved_path", type=str, default="valohai/outputs/")
     args = parser.parse_args()
     return args
 
@@ -61,8 +61,8 @@ def train(opt):
 
     #if os.path.isdir(opt.log_path):
         #shutil.rmtree(opt.log_path)
-    	#os.makedirs(opt.log_path)
-    	#writer = SummaryWriter(opt.log_path)
+    os.makedirs(opt.log_path)
+    writer = SummaryWriter(opt.log_path)
     # writer.add_graph(model, torch.zeros(opt.batch_size, max_sent_length, max_word_length))
 
     if torch.cuda.is_available():
