@@ -29,7 +29,7 @@ def get_args():
     parser.add_argument("--test_interval", type=int, default=1, help="Number of epoches between testing phases")
     parser.add_argument("--word2vec_path", type=str, default="valohai/inputs/word2Vec/glove.6B.50d.txt")
     parser.add_argument("--log_path", type=str, default="valohai/outputs")
-    parser.add_argument("--saved_path", type=str, default="valohai/ouputs")
+    parser.add_argument("--saved_path", type=str, default="valohai/outputs")
     args = parser.parse_args()
     return args
 
@@ -58,8 +58,8 @@ def train(opt):
                        opt.word2vec_path, max_sent_length, max_word_length)
 
 
-    if os.path.isdir(opt.log_path):
-        shutil.rmtree(opt.log_path)
+    #if os.path.isdir(opt.log_path):
+        #shutil.rmtree(opt.log_path)
     os.makedirs(opt.log_path)
     writer = SummaryWriter(opt.log_path)
     # writer.add_graph(model, torch.zeros(opt.batch_size, max_sent_length, max_word_length))
