@@ -24,12 +24,12 @@ def get_args():
                         help="Early stopping's parameter: minimum change loss to qualify as an improvement")
     parser.add_argument("--es_patience", type=int, default=5,
                         help="Early stopping's parameter: number of epochs with no improvement after which training will be stopped. Set to 0 to disable this technique.")
-    parser.add_argument("--train_set", type=str, default="valohai/inputs/train-set/train.csv")
-    parser.add_argument("--test_set", type=str, default="valohai/inputs/test-set/test.csv")
+    parser.add_argument("--train_set", type=str, default="/valohai/inputs/train-set/train.csv")
+    parser.add_argument("--test_set", type=str, default="/valohai/inputs/test-set/test.csv")
     parser.add_argument("--test_interval", type=int, default=1, help="Number of epoches between testing phases")
     parser.add_argument("--word2vec_path", type=str, default="valohai/inputs/word2Vec/glove.6B.50d.txt")
-    parser.add_argument("--log_path", type=str, default="valohai/outputs")
-    parser.add_argument("--saved_path", type=str, default="valohai/outputs/trained-model")
+    parser.add_argument("--log_path", type=str, default="/valohai/outputs")
+    parser.add_argument("--saved_path", type=str, default="/valohai/outputs/trained-model")
     args = parser.parse_args()
     return args
 
