@@ -25,12 +25,12 @@ def get_args():
                         help="Early stopping's parameter: minimum change loss to qualify as an improvement")
     parser.add_argument("--es_patience", type=int, default=5,
                         help="Early stopping's parameter: number of epochs with no improvement after which training will be stopped. Set to 0 to disable this technique.")
-    parser.add_argument("--train_set", type=str, default="data/train.csv")
-    parser.add_argument("--test_set", type=str, default="data/test.csv")
+    parser.add_argument("--train_set", type=str, default="valohai/inputs/train.csv")
+    parser.add_argument("--test_set", type=str, default="valohai/inputs/test.csv")
     parser.add_argument("--test_interval", type=int, default=1, help="Number of epoches between testing phases")
-    parser.add_argument("--word2vec_path", type=str, default="data/glove.6B.50d.txt")
-    parser.add_argument("--log_path", type=str, default="tensorboard/han_voc")
-    parser.add_argument("--saved_path", type=str, default="trained_models")
+    parser.add_argument("--word2vec_path", type=str, default="valohai/inputs/glove.6B.50d.txt")
+    parser.add_argument("--log_path", type=str, default="valohai/ouputs/tensorboard/han_voc")
+    parser.add_argument("--saved_path", type=str, default="valohai/outputs/trained_models")
     args = parser.parse_args()
     return args
 
@@ -60,7 +60,7 @@ def train(opt):
 
 
     if os.path.isdir(opt.log_path):
-        shutil.rmtree(opt.log_path)
+        #shutil.rmtree(opt.log_path)
     os.makedirs(opt.log_path)
     writer = SummaryWriter(opt.log_path)
     # writer.add_graph(model, torch.zeros(opt.batch_size, max_sent_length, max_word_length))
