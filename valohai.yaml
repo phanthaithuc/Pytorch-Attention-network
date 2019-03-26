@@ -18,7 +18,7 @@
       pass-as: --num_epochs {v}
       type: integer
       
-     - default: 128
+    - default: 128
       description: Minibatch size, recommend default 128
       name: Minibatch size
       pass-as: --batch_size {v}
@@ -63,5 +63,5 @@
       
     name: Train model
 
-test
+
 
