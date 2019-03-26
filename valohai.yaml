@@ -58,7 +58,7 @@
       description: Path to choose Word2Vec model
       name: Word2Vec model 
       pass-as: --word2vec_path {v} 
-      type: str   
+      type: string  
   
       
     name: Train model
