@@ -61,7 +61,7 @@ def train(opt):
 
     if os.path.isdir(opt.log_path):
         #shutil.rmtree(opt.log_path)
-    os.makedirs(opt.log_path)
+    #os.makedirs(opt.log_path)
     writer = SummaryWriter(opt.log_path)
     # writer.add_graph(model, torch.zeros(opt.batch_size, max_sent_length, max_word_length))
 
