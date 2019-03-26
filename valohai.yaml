@@ -1,0 +1,67 @@
+- step:
+    image: pytorch/pytorch:latest
+    command: python train.py {parameters}
+    
+    inputs:
+      - name: train-set
+        default: swift://f8a5dbc8033343aea820c139245afe13/Arcada-data/Text-Classification-datasets/AG/train.csv
+      - name: test-set
+        default: swift://f8a5dbc8033343aea820c139245afe13/Arcada-data/Text-Classification-datasets/AG/test.csv
+      - name: word2Vec 
+        default: swift://f8a5dbc8033343aea820c139245afe13/Arcada-data/Pretrained/Glove/glove.6B.50d.txt
+        
+    parameters:
+
+    - default: 100
+      description: Number of training epochs, default "20"
+      name: Number of Epochs
+      pass-as: --num_epochs {v}
+      type: integer
+      
+     - default: 128
+      description: Minibatch size, recommend default 128
+      name: Minibatch size
+      pass-as: --batch_size {v}
+      type: integer    
+      
+    - default: 0.1
+      description: Initial learning rate
+      name: Learning rate
+      pass-as: --lr {v}
+      type: float
+         
+    - default: 3
+      description: Early stopping's parameter, set 0 to disable
+      name: Early stopping
+      pass-as: --es_patience {v}
+      type: integer
+      
+    - default: 50
+      description: Word hidden size
+      name: Word hidden size
+      pass-as: --word_hidden_size {v}
+      type: integer
+      
+    - default: 50
+      description: Sent hidden size
+      name: Sent hidden size
+      pass-as: --sent_hidden_size {v} 
+      type: integer 
+      
+    - default: 0.9
+      description: Momentum, recommend default "0.9"
+      name: Momentum
+      pass-as: --momentum {v}
+      type: float
+      
+    - default: valohai/inputs/word2Vec/glove.6B.50d.txt
+      description: Path to choose Word2Vec model
+      name: Word2Vec model 
+      pass-as: --word2vec_path {v} 
+      type: str   
+  
+      
+    name: Train model
+
+test
+
