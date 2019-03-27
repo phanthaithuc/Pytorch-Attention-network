@@ -54,7 +54,7 @@
       pass-as: --momentum {v}
       type: float
       
-    - default: valohai/inputs/word2Vec/glove.6B.50d.txt
+    - default: /valohai/inputs/word2Vec/glove.6B.50d.txt
       description: Path to choose Word2Vec model
       name: Word2Vec model 
       pass-as: --word2vec_path {v} 
