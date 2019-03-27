@@ -39,7 +39,6 @@ def train(opt):
         torch.cuda.manual_seed(123)
     else:
         torch.manual_seed(123)
-    os.makedirs(opt.saved_path)
     output_file = open(opt.saved_path + os.sep + "logs.txt", "w")
     output_file.write("Model's parameters: {}".format(vars(opt)))
     training_params = {"batch_size": opt.batch_size,
@@ -59,8 +58,8 @@ def train(opt):
                        opt.word2vec_path, max_sent_length, max_word_length)
 
 
-    #if os.path.isdir(opt.log_path):
-        #shutil.rmtree(opt.log_path)
+    if os.path.isdir(opt.log_path):
+        shutil.rmtree(opt.log_path)
     os.makedirs(opt.log_path)
     writer = SummaryWriter(opt.log_path)
     # writer.add_graph(model, torch.zeros(opt.batch_size, max_sent_length, max_word_length))
