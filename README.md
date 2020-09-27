@@ -33,7 +33,9 @@ Pytorch implementation of the paper **Hierarchical Attention Networks for Docume
 | Amazon Review Full     |    5    |   3 000 000   |    650 000   |
 | Amazon Review Polarity |    2    |   3 600 000   |    400 000   |
 
+## Valohai Overview
 
+![graph](/results/valohai_g.png)
 ## Training on Valohai platform with Machine learning version control
 
 * Valohai.yaml 
